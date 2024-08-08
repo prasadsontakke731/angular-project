@@ -1,0 +1,111 @@
+<!-- <div class="step2-container">
+    <h2>Additional Information</h2>
+    <form (ngSubmit)="submit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Organization Name</mat-label>
+            <input matInput [(ngModel)]="organizationName" name="organizationName" (blur)="validateOrganization()"
+                required>
+            <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Designation</mat-label>
+            <mat-select [(ngModel)]="designation" name="designation" required>
+                <mat-option value="Developer">Developer</mat-option>
+                <mat-option value="Manager">Manager</mat-option>
+                <mat-option value="Designer">Designer</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [(ngModel)]="birthDate" name="birthDate" [matDatepicker]="picker" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput [(ngModel)]="city" name="city" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Pincode</mat-label>
+            <input matInput [(ngModel)]="pincode" name="pincode" required pattern="[0-9]{6}">
+            <mat-error *ngIf="pincode && !pincode.match('[0-9]{6}')">Pincode must be 6 digits</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="warn" type="button" (click)="back()">Back</button>
+    </form>
+</div> -->
+
+<div class="bg-blue-100">
+    <div class="flex items-center justify-center ">
+        <div class="bg-white shadow-lg rounded-lg md:flex">
+            <div class="hidden md:flex items-center justify-center p-10 bg-blue-50 rounded-l-lg">
+                <img src="https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png" alt="Illustration" class="h-48 w-48">
+            </div>
+            <div class="p-8 md:p-14 w-full md:w-96">
+                <div class="text-left mb-8">
+                    <a href="/" class="text-blue-600 mb-4 inline-block">&larr; Go Back</a>
+                    <h2 class="text-2xl font-bold mb-4">Create Account</h2>
+                    <div class="flex gap-2 justify-between">
+                        <div class="h-2 w-36 rounded-md bg-blue-600"></div>
+                        <div class="h-2 w-36 rounded-md bg-blue-600"></div>
+                    </div>
+                </div>
+                <form (ngSubmit)="submit()">
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Organisation-name</label>
+                        <input type="text" placeholder="prasad sontakke"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            matInput [(ngModel)]="organizationName" name="organizationName"
+                            (blur)="validateOrganization()" required>
+                        <p *ngIf="oNameError" class="text-red-500">{{ oNameError }}</p>
+
+
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Organisation-id</label>
+                        <input type="text" placeholder="Full name"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 outline-none">
+                        <p *ngIf="oIdError" class="text-red-500">{{ oIdError }}</p>
+
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Designation</label>
+                        <input type="password" placeholder="Password"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 outline-none"
+                            [(ngModel)]="designation" name="designation" required>
+                        <p *ngIf="destError" class="text-red-500">{{ destError }}</p>
+
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Birth-date</label>
+                        <input type="password" placeholder="Password"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 outline-none"
+                            [(ngModel)]="birthDate" name="birthDate" required>
+                        <p *ngIf="birthError" class="text-red-500">{{ birthError }}</p>
+
+
+                    </div>
+                    <div class="flex mb-4">
+                        <div class="w-1/2 mr-2">
+                            <label class="block text-gray-700">City</label>
+                            <input type="password" placeholder="Password"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 outline-none"
+                                [(ngModel)]="city" name="city" required>
+                            <p *ngIf="cityError" class="text-red-500">{{ cityError }}</p>
+
+                        </div>
+                        <div class="w-1/2 ml-2">
+                            <label class="block text-gray-700">Pincode</label>
+                            <input type="password" placeholder="Password"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 outline-none"
+                                [(ngModel)]="pincode" name="pincode" required pattern="[0-9]{6}">
+                            <p *ngIf="pinError" class="text-red-500">{{ pinError }}</p>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-2 px-4 bg-blue-600 text-white font-bold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Next</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

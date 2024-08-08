@@ -1,0 +1,43 @@
+<div class="bg-gradient-to-r from-blue-200 to-blue-300 flex justify-center items-center min-h-screen">
+    <div class="bg-white w-full max-w-4xl rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+        <div class="flex-1 bg-blue-100 flex justify-center items-center p-6 md:p-12">
+            <img src="https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png"
+                alt="Illustration" class="max-w-full h-auto">
+        </div>
+        <div class="flex-1 p-6 md:p-12">
+            <div class="flex flex-col items-start">
+                <img src="https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png"
+                    alt="Solvei8 Logo" class="mb-8 h-12 w-20">
+                <h1 class="text-2xl font-semibold mb-4">Create Account</h1>
+                <div class="flex gap-2 justify-between">
+                    <div class="h-2 w-36 rounded-md bg-blue-600"></div>
+                    <div class="h-2 w-36 rounded-md bg-gray-400"></div>
+                </div>
+                <form class="w-full mt-5" (ngSubmit)="continue()">
+                    <label for="email" class="block text-blue-600 mb-2">Enter Email ID</label>
+                    <input type="text" id="email" placeholder="prasad@gmail.com"
+                        class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        [(ngModel)]="emailOrPhone" name="emailOrPhone" required />
+                    <p class="emailErr" style="color: red;" *ngIf="emailError">{{ emailError }}</p>
+
+                    <label for="fullname" class="block text-blue-600 mb-2">Enter Full Name</label>
+                    <input type="text" id="fullname" placeholder="Full name"
+                        class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        [(ngModel)]="name" name="name" required />
+                    <p class="nameErr" style="color: red;" *ngIf="nameError">{{ nameError }}</p>
+
+                    <label for="password" class="block text-blue-600 mb-2">Create Password</label>
+                    <input type="password" id="password" placeholder="Password"
+                        class="w-full mb-6 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        [(ngModel)]="password" name="password" type="password" required>
+                    <p class="passErr" style="color: red;" *ngIf="passError">{{ passError }}</p>
+
+
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Next</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
